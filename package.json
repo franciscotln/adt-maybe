@@ -1,0 +1,23 @@
+{
+  "author": "Francisco Tavares de Lima Neto",
+  "description": "Function based Maybe ADT",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~4.9.0"
+  },
+  "keywords": [
+    "ADT",
+    "Maybe"
+  ],
+  "license": "MIT",
+  "main": "./Maybe/index.js",
+  "name": "adt-maybe",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franciscotln/adt-maybe.git"
+  },
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "version": "1.0.0"
+}

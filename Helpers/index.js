@@ -1,0 +1,17 @@
+module.exports = {
+  head: require('./head'),
+  isArray: require('./is-array'),
+  isEmpty: require('./is-empty'),
+  isFunction: require('./is-function'),
+  isNil: require('./is-nil'),
+  isNumber: require('./is-number'),
+  isObject: require('./is-object'),
+  isString: require('./is-string'),
+  pipe: require('./pipe'),
+  prop: require('./prop'),
+  propPath: require('./propPath'),
+  reverse: require('./reverse'),
+  split: require('./split'),
+  toLower: require('./to-lower'),
+  toUpper: require('./to-upper'),
+};
