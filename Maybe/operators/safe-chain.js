@@ -7,11 +7,13 @@ module.exports = function safeChain(f) {
     let y;
     try {
       x = Fx();
-      Fy = f(x)
-      y = Fy();
+      if (x == null) {
+        return Nothing();
+      }
+      y = f(x)();
     } catch (e) {
 
     }
-    return x == null || y == null ? Nothing() : Just(y);
+    return y == null ? Nothing() : Just(y);
   };
 };

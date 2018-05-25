@@ -6,10 +6,13 @@ module.exports = function safeMap(f) {
     let y;
     try {
       x = Fx();
+      if (x == null) {
+        return Nothing();
+      }
       y = f(x);
     } catch (e) {
 
     }
-    return x == null || y == null ? Nothing() : Just(y);
+    return y == null ? Nothing() : Just(y);
   }
 };
