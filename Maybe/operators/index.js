@@ -6,6 +6,7 @@ module.exports = {
   log: require('./log'),
   map: require('./map'),
   option: require('./option'),
+  safeChain: require('./safe-chain'),
   safeMap: require('./safe-map'),
   tap: require('./tap'),
 };

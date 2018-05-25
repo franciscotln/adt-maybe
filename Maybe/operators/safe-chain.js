@@ -1,15 +1,17 @@
 const { Just, Nothing } = require('../union');
 
-module.exports = function safeMap(f) {
+module.exports = function safeChain(f) {
   return Fx => {
     let x;
+    let Fy;
     let y;
     try {
       x = Fx();
-      y = f(x);
+      Fy = f(x)
+      y = Fy();
     } catch (e) {
 
     }
     return x == null || y == null ? Nothing() : Just(y);
-  }
+  };
 };
