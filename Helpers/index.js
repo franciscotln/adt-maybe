@@ -8,6 +8,7 @@ module.exports = {
   isObject: require('./is-object'),
   isString: require('./is-string'),
   pipe: require('./pipe'),
+  pipeK: require('./pipe-k'),
   prop: require('./prop'),
   propPath: require('./propPath'),
   reverse: require('./reverse'),
