@@ -1,5 +1,3 @@
-const { Just, Nothing } = require('../union');
+const safe = pred => x => x != null && pred(x) ? function Just() { return x; } : function Nothing() { };
 
-module.exports = function safe(pred) {
-  return x => x != null && pred(x) ? Just(x) : Nothing();
-};
+module.exports = safe;

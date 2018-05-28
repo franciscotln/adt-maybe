@@ -1,5 +1,3 @@
-const { Just, Nothing } = require('../union');
+const safeArray = a => a != null && a.constructor === Array ? function Just() { return a; } : function Nothing() { };
 
-module.exports = function safeArray(x) {
-  return x != null && x.constructor === Array ? Just(x) : Nothing();
-};
+module.exports = safeArray;

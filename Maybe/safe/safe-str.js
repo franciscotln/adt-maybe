@@ -1,5 +1,3 @@
-const { Just, Nothing } = require('../union');
+const safeStr = s => typeof s === 'string' ? function Just() { return s; } : function Nothing() { };
 
-module.exports = function safeStr(s) {
-  return typeof s === 'string' ? Just(s) : Nothing();
-};
+module.exports = safeStr;

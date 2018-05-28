@@ -1,5 +1,3 @@
-const { Just, Nothing } = require('../union');
+const safeFunc = f => typeof f === 'function' ? function Just() { return f; } : function Nothing() { };
 
-module.exports = function safeFunc(f) {
-  return typeof f === 'function' ? Just(f) : Nothing();
-};
+module.exports = safeFunc;

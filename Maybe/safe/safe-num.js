@@ -1,5 +1,3 @@
-const { Just, Nothing } = require('../union');
+const safeNum = x => typeof x === 'number' && isFinite(x) ? function Just() { return x; } : function Nothing() { };
 
-module.exports = function safeNum(x) {
-  return typeof x === 'number' && isFinite(x) ? Just(x) : Nothing();
-};
+module.exports = safeNum;
