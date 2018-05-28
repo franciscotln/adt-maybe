@@ -1,4 +1,4 @@
-module.exports = function log(msg = '') {
+const log = (msg = '') => {
   return Fx => {
     const x = Fx();
     let toPrint;
@@ -14,6 +14,8 @@ module.exports = function log(msg = '') {
       }
     }
     console.log(`${msg}${name} ${toPrint}`);
-    return x == null ? () => { } : () =>  x;
+    return () => x;
   };
 };
+
+module.exports = log;
