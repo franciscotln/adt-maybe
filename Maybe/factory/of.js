@@ -1,5 +1,8 @@
-const Just = require('../union/Just');
-
-module.exports = function of(x) {
-  return Just(x);
+const of = x => {
+  if (x == null) {
+    throw 'Constructor Maybe.of must receive a non-nil value';
+  }
+  return () => x;
 };
+
+module.exports = of;

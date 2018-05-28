@@ -1,3 +1,3 @@
-const safe = pred => x => x != null && pred(x) ? function Just() { return x; } : function Nothing() { };
+const safe = pred => x => x != null && pred(x) ? () => x : () => { };
 
 module.exports = safe;

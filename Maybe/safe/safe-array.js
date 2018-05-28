@@ -1,3 +1,3 @@
-const safeArray = a => a != null && a.constructor === Array ? function Just() { return a; } : function Nothing() { };
+const safeArray = a => a != null && a.constructor === Array ? () => a : () => { };
 
 module.exports = safeArray;

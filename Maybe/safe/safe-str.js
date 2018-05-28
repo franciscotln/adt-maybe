@@ -1,3 +1,3 @@
-const safeStr = s => typeof s === 'string' ? function Just() { return s; } : function Nothing() { };
+const safeStr = s => typeof s === 'string' ? () => s : () => { };
 
 module.exports = safeStr;

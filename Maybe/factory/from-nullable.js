@@ -1,5 +1,3 @@
-const { Just, Nothing } = require('../union');
+const fromNullable = x => x == null ? () => { } : () => x;
 
-module.exports = function fromNullable(x) {
-  return x == null ? Nothing() : Just(x);
-};
+module.exports = fromNullable;

@@ -1,1 +1,3 @@
-module.exports = () => function Nothing() { };
+const Nothing = () => { };
+
+module.exports = () => Nothing;

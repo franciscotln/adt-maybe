@@ -1,6 +1,7 @@
-module.exports = function tap(f) {
-  return Fx => {
-    f(Fx());
-    return Fx;
-  }
+const tap = f => Fx => {
+  const x = Fx();
+  f(x);
+  return () => x;
 };
+
+module.exports = tap;

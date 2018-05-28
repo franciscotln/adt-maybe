@@ -1,18 +1,12 @@
-const { Just, Nothing } = require('../union');
-
-module.exports = function safeMap(f) {
-  return Fx => {
-    let x;
-    let y;
-    try {
-      x = Fx();
-      if (x == null) {
-        return Nothing();
-      }
-      y = f(x);
-    } catch (e) {
-
-    }
-    return y == null ? Nothing() : Just(y);
+const safeMap = f => Fx => {
+  const Nothing = () => { };
+  try {
+    const x = Fx();
+    const y = f(x);
+    return x == null ? Nothing : () => y;
+  } catch (e) {
+    return Nothing;
   }
 };
+
+module.exports = safeMap;

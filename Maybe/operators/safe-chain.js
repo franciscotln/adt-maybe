@@ -1,19 +1,12 @@
-const { Just, Nothing } = require('../union');
-
-module.exports = function safeChain(f) {
-  return Fx => {
-    let x;
-    let Fy;
-    let y;
-    try {
-      x = Fx();
-      if (x == null) {
-        return Nothing();
-      }
-      y = f(x)();
-    } catch (e) {
-
-    }
-    return y == null ? Nothing() : Just(y);
-  };
+const safeChain = f => Fx => {
+  const Nothing = () => { };
+  try {
+    const x = Fx();
+    const Fy = f(x);
+    return x == null ? Nothing : Fy;
+  } catch (e) {
+    return Nothing;
+  }
 };
+
+module.exports = safeChain;
