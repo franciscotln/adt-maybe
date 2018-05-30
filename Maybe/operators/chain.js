@@ -1,6 +1,6 @@
-const chain = f => Fx => {
+const chain = f => Fx => () => {
   const x = Fx();
-  return x == null ? () => { } : f(x);
+  if (x != null) return f(x)();
 };
 
 module.exports = chain;

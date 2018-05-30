@@ -1,12 +1,9 @@
-const safeChain = f => Fx => {
-  const Nothing = () => { };
+const safeChain = f => Fx => () => {
   try {
     const x = Fx();
     const Fy = f(x);
-    return x == null ? Nothing : Fy;
-  } catch (e) {
-    return Nothing;
-  }
+    if (x != null) return Fy();
+  } catch (e) {}
 };
 
 module.exports = safeChain;

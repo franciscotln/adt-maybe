@@ -1,6 +1,6 @@
-const alt = Fy => Fx => {
+const alt = Fy => Fx => () => {
   const x = Fx();
-  return x == null ? Fy : () => x;
-}
+  return x == null ? Fy() : x;
+};
 
 module.exports = alt;

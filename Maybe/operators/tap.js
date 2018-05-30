@@ -1,7 +1,7 @@
-const tap = f => Fx => {
+const tap = f => Fx => () => {
   const x = Fx();
   f(x);
-  return () => x;
+  return x;
 };
 
 module.exports = tap;

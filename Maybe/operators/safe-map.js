@@ -1,12 +1,8 @@
-const safeMap = f => Fx => {
-  const Nothing = () => { };
+const safeMap = f => Fx => () => {
   try {
     const x = Fx();
-    const y = f(x);
-    return x == null ? Nothing : () => y;
-  } catch (e) {
-    return Nothing;
-  }
+    if (x != null) return f(x);
+  } catch (e) {}
 };
 
 module.exports = safeMap;
