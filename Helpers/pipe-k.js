@@ -1,11 +1,11 @@
-const chain = require('../Maybe/operators/chain');
-
 module.exports = function pipeK(...fns) {
   return v0 => {
-    let v = fns[0](v0);
-    for (let i = 1; i < fns.length; i++) {
-      v = chain(fns[i])(v);
+    const [head, ...tail] = fns;
+    let Mx = head(v0);
+    for (const f of tail) {
+      const x = Mx();
+      Mx = () => x != null ? f(x)() : void 0;
     }
-    return v;
+    return Mx;
   };
 };
