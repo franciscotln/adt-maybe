@@ -19,5 +19,5 @@
   "scripts": {
     "test": "tape ./**/*.test.js"
   },
-  "version": "2.2.2"
+  "version": "3.0.0"
 }
