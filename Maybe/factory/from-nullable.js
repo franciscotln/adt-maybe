@@ -1,3 +1,1 @@
-const fromNullable = x => x == null ? () => { } : () => x;
-
-module.exports = fromNullable;
+module.exports = x => () => x;

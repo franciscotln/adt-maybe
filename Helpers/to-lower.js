@@ -1,3 +1,3 @@
 module.exports = function toLower(s) {
-  return s.toLowerCase();
+  return (s || '').toLowerCase();
 }

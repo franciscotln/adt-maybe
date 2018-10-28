@@ -1,3 +1,1 @@
-const safeFunc = f => typeof f === 'function' ? () => f : () => { };
-
-module.exports = safeFunc;
+module.exports = f => () => typeof f === 'function' ? f : void 0;

@@ -1,7 +1,6 @@
 module.exports = {
   alt: require('./alt'),
   ap: require('./ap'),
-  caseDo: require('./case-do'),
   chain: require('./chain'),
   log: require('./log'),
   map: require('./map'),

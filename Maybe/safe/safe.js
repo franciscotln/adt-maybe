@@ -1,3 +1,6 @@
-const safe = pred => x => x != null && pred(x) ? () => x : () => { };
-
-module.exports = safe;
+module.exports = predicate => x => () => {
+  if (typeof predicate !== 'function') {
+    throw new Error('Predicate must be a function');
+  }
+  return x != null && predicate(x) ? x : void 0;
+};

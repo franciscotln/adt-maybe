@@ -1,3 +1,1 @@
-const safeNum = x => typeof x === 'number' && isFinite(x) ? () => x : () => { };
-
-module.exports = safeNum;
+module.exports = x => () => typeof x === 'number' && isFinite(x) ? x : void 0;

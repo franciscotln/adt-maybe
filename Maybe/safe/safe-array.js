@@ -1,3 +1,1 @@
-const safeArray = a => a != null && a.constructor === Array ? () => a : () => { };
-
-module.exports = safeArray;
+module.exports = a => () => a != null && a.constructor === Array ? a : void 0;

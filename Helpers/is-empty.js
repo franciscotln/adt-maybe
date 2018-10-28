@@ -1,5 +1,5 @@
 module.exports = function isEmpty(v) {
-  if (v == null || v === '' || v === 0 || isNaN(v)) {
+  if (!v) {
     return true;
   }
   if (v.constructor.name === 'Object') {

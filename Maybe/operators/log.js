@@ -1,4 +1,4 @@
-const log = (msg = '') => Fx => () => {
+const log = msg => Fx => () => {
   const x = Fx();
   let toPrint;
   let name = 'Just';
@@ -12,7 +12,7 @@ const log = (msg = '') => Fx => () => {
       toPrint = `${x.constructor.name} ${JSON.stringify(x)}`;
     }
   }
-  console.log(`${msg}${name} ${toPrint}`);
+  console.log(`${msg || ''}${name} ${toPrint}`);
   return x;
 };
 

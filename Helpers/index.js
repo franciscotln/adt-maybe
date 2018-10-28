@@ -10,7 +10,7 @@ module.exports = {
   pipe: require('./pipe'),
   pipeK: require('./pipe-k'),
   prop: require('./prop'),
-  propPath: require('./propPath'),
+  propPath: require('./prop-path'),
   reverse: require('./reverse'),
   split: require('./split'),
   toLower: require('./to-lower'),

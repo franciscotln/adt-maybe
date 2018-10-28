@@ -1,6 +1,6 @@
 module.exports = function reverse(list) {
   if (list != null && list.constructor.name === 'Array') {
-    return [...list].reverse();
+    return list.slice().reverse();
   }
   if (typeof list !== 'string') {
     return list;

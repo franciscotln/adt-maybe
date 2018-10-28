@@ -1,3 +1,1 @@
-const safeObj = o => o != null && o.constructor === Object ? () => o : () => { };
-
-module.exports = safeObj;
+module.exports = o => () => o != null && (o.constructor === Object || !o.constructor) ? o : void 0;

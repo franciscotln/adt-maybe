@@ -1,3 +1,1 @@
-const Nothing = () => { };
-
-module.exports = () => Nothing;
+module.exports = () => () => {};

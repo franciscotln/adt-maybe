@@ -10,7 +10,7 @@ Function based Maybe algebraic data type for safe code
 ```js
 const { safeFunc, safeNum } = require('adt-maybe/Maybe/safe');
 const ap = require('adt-maybe/Maybe/operators/ap');
-const caseDo = require('adt-maybe/Maybe/operators/case-do');
+const caseDo = require('adt-maybe/Maybe/runner/case-do');
 const pipe = require('adt-maybe/Helpers/pipe');
 
 // mAdd2 :: Maybe (Number -> Number -> Number)
@@ -39,7 +39,7 @@ pipe(
 
 ### With safe objects
 ```js
-const caseDo = require('adt-maybe/Maybe/operators/case-do');
+const caseDo = require('adt-maybe/Maybe/runner/case-do');
 const safeMap = require('adt-maybe/Maybe/operators/safe-map');
 const safeObj = require('adt-maybe/Maybe/safe/safe-obj');
 const { pipe, propPath, toLower } = require('adt-maybe/Helpers');

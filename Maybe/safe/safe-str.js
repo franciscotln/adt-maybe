@@ -1,3 +1,1 @@
-const safeStr = s => typeof s === 'string' ? () => s : () => { };
-
-module.exports = safeStr;
+module.exports = s => () => typeof s === 'string' ? s : void 0;

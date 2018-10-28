@@ -17,7 +17,7 @@
     "url": "git+https://github.com/franciscotln/adt-maybe.git"
   },
   "scripts": {
-    "test": "tape test.js"
+    "test": "tape ./**/*.test.js"
   },
   "version": "2.2.2"
 }
