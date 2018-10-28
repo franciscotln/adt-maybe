@@ -42,7 +42,7 @@ pipe(
 const caseDo = require('adt-maybe/Maybe/runner/case-do');
 const safeMap = require('adt-maybe/Maybe/operators/safe-map');
 const safeObj = require('adt-maybe/Maybe/safe/safe-obj');
-const { pipe, propPath, toLower } = require('adt-maybe/Helpers');
+const { pipe } = require('adt-maybe/Helpers');
 
 // safeJonSnow :: Maybe Person
 const safeJonSnow = safeObj({
@@ -51,30 +51,56 @@ const safeJonSnow = safeObj({
     first: 'Jon',
     last: 'Snow'
   },
-  knows: []
+  knows: ['nothing']
 });
 
 // safeNobody :: Maybe Person
 const safeNoOne = safeObj({
   id: 2,
-  knows: []
+  knows: ['Javascript']
 });
 
 // getLastNameLower :: Person -> String
 const getLastNameLower = pipe(
-  propPath('name.last'),
-  toLower
+  person => person.name.last,
+  lastName => lastName.toLowerCase()
 );
 
 // getLastName :: Maybe Person -> String
 const getLastName = pipe(
   safeMap(getLastNameLower),
   caseDo({
-    Just: x => x,
-    Nothing: () => 'bastard'
+    Just: lastName => lastName,
+    Nothing: () => 'no one'
   })
 );
 
-getLastName(safeJonSnow); // => snow
-getLastName(safeNoOne); // => bastard
+getLastName(safeJonSnow); // => 'snow'
+getLastName(safeNoOne); // => 'no one'
+```
+
+### Using pipe Kleisli
+```js
+const { safeObj, safeStr } = require('adt-maybe/Maybe/safe');
+const pipeK = require('adt-maybe/Helpers/pipe-k');
+const parseJSON = require('adt-maybe/Maybe/factory/parse-json');
+const caseDo = require('adt-maybe/Maybe/runner/case-do');
+
+// maybeFirstName :: Maybe String
+const maybeFirstName = pipeK(
+  parseJSON,
+  person => safeObj(person.name),
+  name => safeStr(name.first)
+)("{\"name\":{\"first\":\"Spock\"}}");
+
+const cases = {
+  Just(firstName) {
+    return firstName.toUpperCase();
+  },
+  Nothing() {
+  
+  }
+};
+
+caseDo(cases)(getLastName); // => 'SPOCK'
 ```
