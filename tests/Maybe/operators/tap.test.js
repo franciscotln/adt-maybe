@@ -14,3 +14,13 @@ test('calls a tapping function and returns the same Maybe(v) if the input is May
   })(Nothing)());
   t.end();
 });
+
+test('should not call the tapping function if the input is a Nothing()', (t) => {
+  const Nothing = () => {};
+  let calls = 0;
+
+  tap(() => calls++)(Nothing)();
+
+  t.equals(0, calls);
+  t.end();
+});

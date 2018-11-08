@@ -1,6 +1,6 @@
 const tap = f => Fx => () => {
   const x = Fx();
-  f(x);
+  if (x != null) f(x);
   return x;
 };
 
